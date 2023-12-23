@@ -5,8 +5,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED true)
 
 project(leetcode)
 
-set(LIB_NAME leetcode)
-set(LIB_INCLUDE ${CMAKE_SOURCE_DIR}/include/)
+set(LEETCODE_INCLUDE ${CMAKE_SOURCE_DIR}/include/)
 
-add_subdirectory(src)
 add_subdirectory(tests)
