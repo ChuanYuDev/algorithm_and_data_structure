@@ -3,7 +3,12 @@ find_package(Boost COMPONENTS unit_test_framework REQUIRED)
 
 set(TEST_LIB test_lib)
 add_library(${TEST_LIB} INTERFACE)
-target_include_directories(${TEST_LIB} INTERFACE ${LEETCODE_INCLUDE})
+target_include_directories(
+    ${TEST_LIB} INTERFACE 
+    ${LEETCODE_PUBLIC_HEADER}
+    ${LEETCODE_PRIVATE_HEADER}
+)
+
 target_link_libraries(${TEST_LIB} INTERFACE ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY})
 
 enable_testing()
@@ -15,3 +20,7 @@ function(add_leetcode_test TEST_NAME TEST_SRC)
 endfunction()
 
 add_leetcode_test(test_1_two_sum test_1_two_sum.cpp)
+
+set(TEST_56_MERGE_INTERVALS test_56_merge_intervals)
+add_executable(${TEST_56_MERGE_INTERVALS} ${TEST_56_MERGE_INTERVALS}.cpp)
+target_link_libraries(${TEST_56_MERGE_INTERVALS} PUBLIC ${TEST_LIB})

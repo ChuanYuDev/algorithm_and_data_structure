@@ -1,5 +1,5 @@
-#ifndef LEETCODE_SOLUTIONS_HPP_ 
-#define LEETCODE_SOLUTIONS_HPP_ 
+#ifndef LEETCODE_1_TWO_SUM_HPP_ 
+#define LEETCODE_1_TWO_SUM_HPP_ 
 
 #include <vector>
 #include <unordered_map>
@@ -35,4 +35,4 @@ public:
 
 } // namespace leetcode
 
-#endif
+#endif // LEETCODE_1_TWO_SUM_HPP_
