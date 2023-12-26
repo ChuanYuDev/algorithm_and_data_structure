@@ -27,7 +27,7 @@ public:
         result.push_back(intervals[0]);
         int last_result_id = 0;
 
-        for (int i = 1; i < intervals.size(); ++i)
+        for (std::size_t i = 1; i < intervals.size(); ++i)
         {
             last_result_id = result.size() - 1;
 

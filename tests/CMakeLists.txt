@@ -21,6 +21,7 @@ endfunction()
 
 add_leetcode_test(test_1_two_sum test_1_two_sum.cpp)
 
-set(TEST_56_MERGE_INTERVALS test_56_merge_intervals)
-add_executable(${TEST_56_MERGE_INTERVALS} ${TEST_56_MERGE_INTERVALS}.cpp)
-target_link_libraries(${TEST_56_MERGE_INTERVALS} PUBLIC ${TEST_LIB})
+add_executable(test_56_merge_intervals test_56_merge_intervals.cpp)
+target_link_libraries(test_56_merge_intervals PUBLIC ${TEST_LIB})
+
+add_leetcode_test(test_84_largest_rectangle_in_histogram test_84_largest_rectangle_in_histogram.cpp)

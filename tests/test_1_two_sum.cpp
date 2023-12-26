@@ -1,11 +1,11 @@
-#define BOOST_TEST_MODULE test_1_two_sum
+#define BOOST_TEST_MODULE test
 
 #include <boost/test/unit_test.hpp>
 
 #include "leetcode/1_two_sum.hpp"
 
 BOOST_AUTO_TEST_SUITE(test_1_two_sum)
-BOOST_AUTO_TEST_CASE(two_sum_0)
+BOOST_AUTO_TEST_CASE(test_0)
 {
 	std::vector<int> nums = {2, 7, 11, 15};
 	int target = 9;
