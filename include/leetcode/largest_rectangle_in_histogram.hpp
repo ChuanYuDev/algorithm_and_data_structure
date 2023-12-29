@@ -1,5 +1,5 @@
-#ifndef LEETCODE_84_HPP_
-#define LEETCODE_84_HPP_
+#ifndef LEETCODE_LARGEST_RECTANGLE_IN_HISTOGRAM_HPP_
+#define LEETCODE_LARGEST_RECTANGLE_IN_HISTOGRAM_HPP_
 
 #include <vector>
 #include <stack>
@@ -62,4 +62,4 @@ public:
 
 } // namespace leetcode
 
-#endif // LEETCODE_84_HPP_
+#endif // LEETCODE_LARGEST_RECTANGLE_IN_HISTOGRAM_HPP_

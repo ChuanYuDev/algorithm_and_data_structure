@@ -1,4 +1,4 @@
-#include "leetcode/56_merge_intervals.hpp"
+#include "leetcode/merge_intervals.hpp"
 #include "utils/output.hpp"
 
 int main()

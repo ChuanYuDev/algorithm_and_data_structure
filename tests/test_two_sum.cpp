@@ -2,7 +2,7 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "leetcode/1_two_sum.hpp"
+#include "leetcode/two_sum.hpp"
 
 BOOST_AUTO_TEST_SUITE(test_1_two_sum)
 BOOST_AUTO_TEST_CASE(test_0)

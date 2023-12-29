@@ -2,7 +2,7 @@
 
 #include <boost/test/unit_test.hpp>
 
-#include "leetcode/84_largest_rectangle_in_histogram.hpp"
+#include "leetcode/largest_rectangle_in_histogram.hpp"
 
 struct Fixture
 {

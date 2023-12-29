@@ -1,4 +1,4 @@
-# 84. Largest Rectangle in Histogram
+# Largest Rectangle in Histogram
 
 Hard
 
@@ -7,7 +7,7 @@ Given an array of integers heights representing the histogram's bar height where
 ### Example 1:
 
 <p align = "center">
-    <img src = "image/84_0.jpg">
+    <img src = "image/largest_rectangle_in_histogram_0.jpg">
 </p>
 
 Input: heights = [2,1,5,6,2,3]
@@ -18,7 +18,7 @@ The largest rectangle is shown in the red area, which has an area = 10 units.
 ### Example 2:
 
 <p align = "center">
-    <img src = "image/84_1.jpg">
+    <img src = "image/largest_rectangle_in_histogram_1.jpg">
 </p>
 
 Input: heights = [2,4]
@@ -38,7 +38,7 @@ Output: 4
     - if `i == n height = 0` 
         - trigger the calculation of area if stack is not empty when `i = n - 1`
     - else `height = heights[i]`
-    - if `heights[st.top()] >= heights[i]`
+    - if `heights[st.top()] >= height`
         - height of interest is `st.top()` 
         - pop stack
         - width of interest is `i - st.top() - 1`
