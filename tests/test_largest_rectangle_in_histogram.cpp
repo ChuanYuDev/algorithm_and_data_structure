@@ -12,7 +12,7 @@ struct Fixture
     std::vector<int> heights;
 };
 
-BOOST_FIXTURE_TEST_SUITE(test_84, Fixture)
+BOOST_FIXTURE_TEST_SUITE(test_largest_rectangle_in_histogram, Fixture)
 BOOST_AUTO_TEST_CASE(test_0)
 {
     heights = {2, 1, 5, 6, 2, 3};

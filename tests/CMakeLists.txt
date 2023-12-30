@@ -19,9 +19,10 @@ function(add_leetcode_test TEST_NAME TEST_SRC)
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME} WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endfunction()
 
-add_leetcode_test(test_two_sum test_two_sum.cpp)
+add_leetcode_test(test_course_schedule test_course_schedule.cpp)
+add_leetcode_test(test_largest_rectangle_in_histogram test_largest_rectangle_in_histogram.cpp)
 
 add_executable(test_merge_intervals test_merge_intervals.cpp)
 target_link_libraries(test_merge_intervals PUBLIC ${TEST_LIB})
 
-add_leetcode_test(test_largest_rectangle_in_histogram test_largest_rectangle_in_histogram.cpp)
+add_leetcode_test(test_two_sum test_two_sum.cpp)
