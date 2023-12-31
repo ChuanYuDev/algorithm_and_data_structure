@@ -21,8 +21,10 @@ Explanation: Intervals [1,4] and [4,5] are considered overlapping.
 - 0 <= starti <= endi <= 104
 
 ### Solution
-- 将intervals中的interval按照start从小到大排列
-- 将intervals[0]插入result中
-- 如果result[0][1] >= intervals[1][1]，说明result[0]和intervals[1]有overlap，这样更改result[0]的end值
-- 如果result[0][1] < intervals[1][1]，说明result[0]和intervals[1]没有overlap，这样将intervals[1]加入到result
-- 以此类推
+- sort `intervals` element based on start
+- insert `intervals[0]` into `result`
+- traverse `intervals`
+- if `result[0][1] >= intervals[1][1]`
+    - `result[0]` and `intervals[1]` overlap，change `result[0]` end value
+- else
+    - `result[0]` and `intervals[1]` do not overlap，insert `result[1]` into `result`

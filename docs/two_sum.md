@@ -11,4 +11,9 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return[0, 1].
 
 ### Solution
-one-pass hash table，即加入一个数的时候先检测是否有对应的数已经在hash table中了。
+- create a unordered map with key `a[i]` and value `i`
+- tranverse `nums`
+- if `target - num` has already existed in the map
+    - return corresponding index 
+- else
+    - insert the `num` and its index into map
