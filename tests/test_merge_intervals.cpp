@@ -1,12 +1,12 @@
 #include "leetcode/merge_intervals.hpp"
-#include "utils/output.hpp"
+#include "external/common/output.hpp"
 
 int main()
 {
     leetcode::Solution sol;
     std::vector<std::vector<int>> intervals;
 
-    using leetcode::operator<<;
+    using common::operator<<;
 
     intervals = {{1,3},{8,10},{2,6},{15,18}};
     std::cout << sol.merge(intervals) << std::endl;

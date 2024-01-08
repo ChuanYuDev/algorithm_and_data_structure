@@ -1,11 +1,19 @@
-#ifndef LEETCODE_OUTPUT_HPP_
-#define LEETCODE_OUTPUT_HPP_
+#ifndef COMMON_OUTPUT_HPP_
+#define COMMON_OUTPUT_HPP_
 
 #include <vector>
 #include <iostream>
 
-namespace leetcode
+namespace common
 {
+
+template <typename T>
+std::ostream & operator<<(std::ostream &os, const std::vector<T> &v)
+{
+    for (const auto &e: v)
+        os << e << " ";
+    return os;
+}
 
 template <typename T>
 std::ostream & operator<<(std::ostream &os, std::vector<std::vector<T>> v)
@@ -22,6 +30,6 @@ std::ostream & operator<<(std::ostream &os, std::vector<std::vector<T>> v)
     return os;
 }
 
-} // namespace leetcode 
+} // namespace common
 
-#endif // LEETCODE_OUTPUT_HPP_
+#endif // COMMON_OUTPUT_HPP_
