@@ -1,27 +1,71 @@
-# 32. Longest Valid Parentheses
+# Longest Valid Parentheses
+Hard
 
-## Description:
+Given a string containing just the characters '(' and ')', return the length of the longest valid (well-formed) parentheses substring.
 
-Given a string containing just the characters '(' and ')', find the length of the longest valid (well-formed) parentheses substring.
+### Example 1:
 
-## Example:
-- Example 1:
+- Input: s = "(()"
+- Output: 2
+- Explanation: The longest valid parentheses substring is "()".
 
-  Input: "(()"
+### Example 2:
 
-  Output: 2
+- Input: s = ")()())"
+- Output: 4
+- Explanation: The longest valid parentheses substring is "()()".
 
-  Explanation: The longest valid parentheses substring is "()"
+### Example 3:
 
-- Example 2:
-  
-  Input: ")()())"
-  
-  Output: 4
-  
-  Explanation: The longest valid parentheses substring is "()()"*/
+- Input: s = ""
+- Output: 0
+ 
+### Constraints:
 
-## Approach: O(n) time, without extra space
+- 0 <= s.length <= 3 * 104
+- `s[i]` is `'('`, or `')'`.
+
+### Solution:
+
+- Create stack to store characters.
+
+```
+longest_length = 0, length = 0
+
+for i in 0 to s.size():
+    if s[i] is '(', push i into stack
+    else:
+        if stack is empty, push i into stack
+        else:
+            if top of stack is '(', pop stack
+                if stack is empty, length = i + 1
+                else length = i - stack.top()
+                longest_length = max(longest_length, length)
+            else:
+                push i into stack
+
+return longest_length
+```
+
+#### Example:
+```
+( ( ) ( ( ) ( )
+0 1 2 3 4 5 6 7
+stack:
+0 1      i = 2，pop 1
+0        length = 2 - 0 = 2
+0 3 4    i = 5，pop 4
+0 3      length = 5 - 3 = 2
+0 3 6    i = 7，pop 6
+0 3      length = 7 - 3 = 4
+longest length is 4
+```
+
+#### Complexity:
+time: O(n), traverse string
+space: O(n) for stack
+
+### Solution without extra space (TO DO):
 
 In this approach, we make use of two counters `left` and `right`. 
 1. We start traversing the string from the left towards the right and for every '(' encountered, we increment the `left` counter and for every ')' encountered, we increment the `right` counter.
@@ -30,7 +74,7 @@ In this approach, we make use of two counters `left` and `right`.
 
 3. Next, we start traversing the string from right to left and similar procedure is applied. However, this time, if `left` becomes greater than `right`, we reset `left` and `right` to `0`.
 
-## Proof
+#### Proof:
 
 assume the longest substring is `s[i: j + 1]`
 1. From left to right，when we reach `i - 1`

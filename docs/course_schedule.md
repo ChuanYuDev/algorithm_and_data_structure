@@ -27,7 +27,7 @@ Return true if you can finish all courses. Otherwise, return false.
 - 0 <= ai, bi < numCourses
 - All the pairs prerequisites[i] are unique.
 
-### Solution
+### Solution:
 - Each prerequisite [a, b] is a directed edge from a to b
 - The course schedule is topological sorting of all the vertices
 - Apply Kahn's algorithm for topological sorting
