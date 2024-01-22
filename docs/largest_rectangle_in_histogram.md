@@ -25,8 +25,8 @@ Input: heights = [2,4]
 Output: 4
 
 ### Constraints:
-1 <= heights.length <= 105
-0 <= heights[i] <= 104
+- 1 <= heights.length <= 105
+- 0 <= heights[i] <= 104
 
 ### Solution:
 - define stack `st` to store the id of heights 
