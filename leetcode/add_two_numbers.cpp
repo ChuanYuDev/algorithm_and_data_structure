@@ -1,5 +1,5 @@
 #include <iostream>
-#include <fstream>
+#include <vector>
 
 // Definition for singly-linked list.
 struct ListNode
@@ -15,46 +15,68 @@ class Solution {
 public:
 	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2)
 	{
-		ListNode *prefirst = new ListNode(0);
-		ListNode *p = prefirst;
+		ListNode *prev_result = new ListNode();
+		ListNode *p = prev_result;
+
 		ListNode *p1 = l1, *p2 = l2;
 		
-		int carry = 0, tmp;
+		int carry = 0, temp;
+		// Loop p1 and p2 until both are nullptr
+		
 		while (p1 != nullptr || p2 != nullptr)
 		{
-			int n1 = (p1 != NULL) ? p1->val : 0;
-			int n2 = (p2 != NULL) ? p2->val : 0;
-			tmp = n1 + n2 + i;
-			i = tmp / 10;
-			tmp %= 10;
-			p->next = new ListNode(tmp);
+			// If one of them is nullptr, we can assume it as 0
+			//		5 -> 0
+			//		1 -> 6
+			//		6 -> 6
+			int d1 = (p1 != nullptr) ? p1->val : 0;
+			int d2 = (p2 != nullptr) ? p2->val : 0;
+
+			// Add two corresponding digits (d1, d2) of p1 and p2 and carry
+			temp = d1 + d2 + carry;
+			carry = temp / 10;
+			temp = temp % 10;
+
+			// Save the temp result to the singly linked list
+			p->next = new ListNode(temp);
 			p = p->next;
-			if (p1 != NULL) p1 = p1->next;
-			if (p2 != NULL) p2 = p2->next;
+
+			// Increase p1 and p2
+			// 		If p1 or p2 is nullptr, skip the increase
+			if (p1 != nullptr) p1 = p1->next;
+			if (p2 != nullptr) p2 = p2->next;
 		}
-		if (i != 0) {
-			p->next = new ListNode(i);
+
+		// If the carry is not 0, we need to add one more node
+		//		5 -> 6
+		//		3 -> 5
+		//		8 -> 1 -> 1
+		if (carry != 0) {
+			p->next = new ListNode(carry);
 		}
-		return prefirst->next;
+
+		return prev_result->next;
 	}
 };
 
-//make list
-ListNode* makeList(int* a, int num) {
-	ListNode* first= new ListNode(a[0]);
-	ListNode* p1, * p2;
-	p1 = first;
-	for (int i = 1; i < num; i++) {
-		p2 = new ListNode(a[i]);
-		p1->next = p2;
-		p1 = p2;
+// Create List Node of l1 based on l1_list 
+ListNode* createList(std::vector<int> &l1_list)
+{
+	ListNode *prev_l1 = new ListNode();
+	ListNode *p = prev_l1;
+
+	for (std::vector<int>::size_type i = 0; i < l1_list.size(); i++)
+	{
+		p->next = new ListNode(l1_list[i]);
+		p = p->next;
 	}
-	return first;
+
+	return prev_l1->next;
 }
 
-void print_list(ListNode* p)
+void printList(ListNode* p)
 {
-	while (p != NULL)
+	while (p != nullptr)
 	{
 		std::cout << p->val << " ";
 		p = p->next;
@@ -63,23 +85,54 @@ void print_list(ListNode* p)
 	std::cout << std::endl;
 }
 
-
 int main()
 {
-	Data data;
-	char filename[] = "2_test.txt";
-	inputData(filename, data);
-	data.readData();
 	Solution solution;
-	cout << endl << "result: " << endl;
-	for (int i = 0; i < data.lineNum / 2; i++) {
-		ListNode* p1 = makeList(data.a[2 * i], data.b[2 * i]);
-		ListNode* p2 = makeList(data.a[2 * i + 1], data.b[2 * i + 1]);
-		outputList(p1);
-		outputList(p2);
-		ListNode* result = solution.addTwoNumbers(p1, p2);
-		outputList(result);
-	}
+	std::vector<int> l1_list, l2_list;
+	ListNode *l1, *l2, *result;
+
+	// Example 1
+	l1_list = {2, 4, 3};
+	l2_list = {5, 6, 4};
+
+	l1 = createList(l1_list);
+	l2 = createList(l2_list);
+
+	result = solution.addTwoNumbers(l1, l2);
+
+	std::cout << "Answer: 7 0 8" << std::endl;
+	std::cout << "Output: ";
+	printList(result);
+
+	// Example 2
+	l1_list = {0};
+	l2_list = {0};
+
+	l1 = createList(l1_list);
+	l2 = createList(l2_list);
+
+	result = solution.addTwoNumbers(l1, l2);
+
+	std::cout << "Answer: 0" << std::endl;
+	std::cout << "Output: ";
+	printList(result);
+
+	// Example 3
+	l1_list = {9,9,9,9,9,9,9};
+	l2_list = {9,9,9,9};
+
+	l1 = createList(l1_list);
+	l2 = createList(l2_list);
+
+	result = solution.addTwoNumbers(l1, l2);
+
+	std::cout << "Answer: 8 9 9 9 0 0 0 1" << std::endl;
+	std::cout << "Output: ";
+	printList(result);
+
+	// Free l1, l2 and result
+	// To do
+
     return 0;
 }
 
