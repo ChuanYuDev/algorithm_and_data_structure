@@ -1,11 +1,7 @@
-#ifndef LEETCODE_BULLS_AND_COWS_HPP_
-#define LEETCODE_BULLS_AND_COWS_HPP_
-
 #include <string>
 #include <unordered_map>
+#include <iostream>
 
-namespace leetcode
-{
 class Solution
 {
 public:
@@ -37,6 +33,19 @@ public:
         return std::to_string(bull) + 'A' + std::to_string(cow) + 'B';
     }
 };
-} // namespace leetcode
 
-#endif // LEETCODE_BULLS_AND_COWS_HPP_
+int main(int argc, char *argv[])
+{
+    Solution sol;
+    std::string secret, guess;
+
+    secret = "1807", guess = "7810";
+    std::cout << "Answer: " << "1A3B" << std::endl;
+    std::cout << "Output: " << sol.getHint(secret, guess) << std::endl;
+
+    secret = "1123", guess = "0111";
+    std::cout << "Answer: " << "1A1B" << std::endl;
+    std::cout << "Output: " << sol.getHint(secret, guess) << std::endl;
+
+    return 0;
+}
