@@ -12,7 +12,7 @@ Given the secret number `secret` and your friend's guess `guess`, return the hin
 
 The hint should be formatted as `xAyB`, where `x` is the number of bulls and `y` is the number of cows. Note that both `secret` and `guess` may contain duplicate digits.
 
-### Example 1:
+## Example 1:
 
 - Input: secret = "1807", guess = "7810"
 - Output: "1A3B"
@@ -25,7 +25,7 @@ The hint should be formatted as `xAyB`, where `x` is the number of bulls and `y`
     - --
     ```
 
-### Example 2:
+## Example 2:
 
 - Input: secret = "1123", guess = "0111"
 - Output: "1A1B"
@@ -49,13 +49,13 @@ The hint should be formatted as `xAyB`, where `x` is the number of bulls and `y`
 - Note that only one of the two unmatched 1s is counted as a cow since the non-bull digits can only be rearranged to allow one 1 to be a bull.
  
 
-### Constraints:
+## Constraints:
 
 - `1 <= secret.length, guess.length <= 1000`
 - `secret.length == guess.length`
 - `secret` and `guess` consist of digits only.
 
-### Solution
+## Solution
 - Create an unordered map `digits` with character key and number of times the character appears in `secret`
 
 - Traverse every character in `secret` string
