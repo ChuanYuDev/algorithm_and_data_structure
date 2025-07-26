@@ -1,0 +1,8 @@
+CXX=g++
+CFLAGS = -Wall -g
+
+duplicate_array: duplicate_array.cpp
+	$(CXX) $(CFLAGS) -o $@ $^
+
+prime_number: prime_number.cpp
+	$(CXX) $(CFLAGS) -o $@ $^
