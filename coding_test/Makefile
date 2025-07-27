@@ -1,9 +1,6 @@
 CXX=g++
 CFLAGS = -Wall -g
 
-bfs: bfs.cpp
-	$(CXX) $(CFLAGS) -o $@ $^
-
 duplicate_array: duplicate_array.cpp
 	$(CXX) $(CFLAGS) -o $@ $^
 

@@ -80,7 +80,7 @@ TreeNode *createTree(std::vector<int> tree_list)
     // The root of i is (i - 1)/2 
     //      if i is odd, it's left node
     //      if i is even, it's right node
-    for (; i < size; i++)
+    for (i = 1; i < size; i++)
     {
         // If value is null, stop creating treenode
         if (tree_list[i] == null_num)
