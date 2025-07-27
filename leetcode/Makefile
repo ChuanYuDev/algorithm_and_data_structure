@@ -6,3 +6,6 @@ add_two_numbers: add_two_numbers.cpp
 
 bulls_and_cows: bulls_and_cows.cpp
 	$(CXX) $(CFLAGS) -o $@ $^
+
+two_sum: two_sum.cpp
+	$(CXX) $(CFLAGS) -o $@ $^
