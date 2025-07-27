@@ -9,9 +9,3 @@ bulls_and_cows: bulls_and_cows.cpp
 
 two_sum: two_sum.cpp
 	$(CXX) $(CFLAGS) -o $@ $^
-
-validate_binary_search_tree_in_order: validate_binary_search_tree_in_order.cpp
-	$(CXX) $(CFLAGS) -o $@ $^
-
-validate_binary_search_tree: validate_binary_search_tree.cpp
-	$(CXX) $(CFLAGS) -o $@ $^
