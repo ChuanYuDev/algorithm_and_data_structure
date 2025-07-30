@@ -1,5 +1,5 @@
 CXX=g++
-CFLAGS= -Wall -g
+CFLAGS = -Wall -g
 
-constructor_test: constructor_test.cpp
+test: test.cpp
 	$(CXX) $(CFLAGS) -o $@ $^

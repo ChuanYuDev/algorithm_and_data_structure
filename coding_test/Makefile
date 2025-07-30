@@ -1,6 +1,9 @@
 CXX=g++
 CFLAGS = -Wall -g
 
+constructor_test: constructor_test.cpp
+	$(CXX) $(CFLAGS) -o $@ $^
+
 duplicate_array: duplicate_array.cpp
 	$(CXX) $(CFLAGS) -o $@ $^
 
