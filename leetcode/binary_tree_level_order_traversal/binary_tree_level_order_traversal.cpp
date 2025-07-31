@@ -14,7 +14,105 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
-class Solution
+class SolutionDfs
+{
+public:
+    std::vector<std::vector<int>> levelOrder(TreeNode* root)
+    {
+        std::vector<std::vector<int>> result;
+
+        // Travers all the nodes in the tree
+        helper(root, 0, result);
+
+        return result;
+    }
+
+    void helper(TreeNode *node_ptr, int level, std::vector<std::vector<int>> &result)
+    {
+        // Get the node level i
+        // root -> 0
+        // node -> i
+        // left and right child -> i + 1
+
+        // Check root is nullptr
+        if (node_ptr == nullptr)
+            return;
+
+        // 3        level 0
+        // 9 20     level 1
+        // If result size is equal to level, it shows it's the first time to go to this level
+        // Create result element and add it in the result
+        int size = result.size();
+
+        if (size == level)
+        {
+            std::vector<int> result_element;
+            result.push_back(result_element);
+        }
+
+        // Add node value to result[level] vector
+        result[level].push_back(node_ptr->val);
+
+        // Do the recursion to the left node and right node
+        helper(node_ptr->left, level + 1, result);
+        helper(node_ptr->right, level + 1, result);
+    }
+};
+
+class SolutionBfs
+{
+public:
+    std::vector<std::vector<int>> levelOrder(TreeNode* root)
+    {
+        std::vector<std::vector<int>> result;
+        std::queue<TreeNode *> queue;
+
+        // Check root is nullptr
+        if (root == nullptr)
+            return result;
+
+        // Add root to the queue
+        queue.push(root);
+
+        // queue is not empty
+        while (!queue.empty())
+        {
+            // Based on the queue size n
+            int n = queue.size();
+
+            std::vector<int> element_result;
+
+            // The first n elements belong to the level i
+            // The other elements belong to the level i + 1
+            for (int i = 0; i < n; i++)
+            {
+                // Retrieve elements from queue 
+                TreeNode *node_ptr = queue.front();
+                queue.pop();
+
+                // Add element value to the element_result
+                element_result.push_back(node_ptr->val);
+
+                // Check node ptr is null
+                // Add left and right non-null node ptr to the queue
+                if (node_ptr->left != nullptr)
+                    queue.push(node_ptr->left);
+
+                if (node_ptr->right != nullptr)
+                    queue.push(node_ptr->right);
+            }
+
+            result.push_back(element_result);
+        }
+
+        return result;
+    }
+};
+
+// This solution is also using BFS
+//      But the condition to check whether the queue is empty for the same level is way more complicated
+//      Compared to SolutionBfs
+class SolutionBfsSlow
 {
 public:
     std::vector<std::vector<int>> levelOrder(TreeNode* root)
@@ -171,7 +269,7 @@ void printResult(std::vector<std::vector<int>> & result)
 
 int main()
 {
-    Solution sol;
+    SolutionBfs sol;
     std::vector<std::vector<int>> result;
     std::vector<int> tree_list;
     TreeNode *root;

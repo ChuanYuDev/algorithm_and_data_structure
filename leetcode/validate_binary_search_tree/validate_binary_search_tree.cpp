@@ -16,7 +16,45 @@ struct TreeNode
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
+// Solution is to represent the BST using list
+//      If the BST is valid, the list will be in an ascending order
 class Solution
+{
+public:
+
+    void inOrder(TreeNode *root, std::vector<int> &list)
+    {
+        if (root == nullptr)
+            return;
+
+        // Represent the BST value via list
+        // Add left subtree to the list
+        inOrder(root->left, list);
+
+        // Add root value to the list
+        list.push_back(root->val);
+
+        // Add right subtree to the list
+        inOrder(root->right, list);
+    }
+
+    bool isValidBST(TreeNode *root)
+    {
+        std::vector<int> list;
+        inOrder(root, list);
+
+        // Check if this list is in an ascending order
+        for (std::vector<int>::size_type i = 0; i < list.size() - 1; ++i)
+        {
+            if (list[i] >= list[i + 1])
+                return false;
+        }
+
+        return true;
+    }
+};
+
+class SolutionSlow
 {
 public:
     bool isLess(TreeNode *root, int value)
