@@ -1,6 +1,8 @@
 #include <vector>
 #include <iostream>
 
+// Time complexity: O(n)
+// Space complexity: O(1)
 class Solution
 {
 public:
